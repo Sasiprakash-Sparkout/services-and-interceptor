@@ -1,0 +1,33 @@
+<h2>PRODUCT DETAILS</h2>
+
+<div class="products">
+
+  <div class="product-card" *ngFor="let product of products">
+
+    <h2>{{ product.title }}</h2>
+
+    <p>Price: ₹{{ product.price }}</p>
+
+    <p>Category: {{ product.category }}</p>
+    <p>Rating:  {{product.rating}}</p>
+    
+
+  </div>
+
+</div> 
+<div class="get-products">
+  <label for="product">PRODUCT ID</label>
+  <input type="number" [(ngModel)]="productID" placeholder="ENTER the PRODUCT ID">
+  &nbsp; <button (click)="getproduct()">Display</button>
+ <div *ngIf="items">
+
+  <h2>{{ items.title }}</h2>
+
+ 
+
+  <p>Price: ₹{{ items.price }}</p>
+
+  <p>Category: {{ items.category }}</p>
+  </div>
+</div>
+  

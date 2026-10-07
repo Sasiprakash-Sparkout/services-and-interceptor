@@ -1,0 +1,16 @@
+<header class="header">
+
+  <div class="logo">
+    🌾 AgroFarm
+  </div>
+
+  <nav>
+    <a routerLink="">home</a>
+       <a routerLink="/login">Login</a>
+       <a routerLink="/user">user</a>
+  </nav>
+  @if(auth.isloggedin){
+<div>hello world</div>
+  }
+
+</header>

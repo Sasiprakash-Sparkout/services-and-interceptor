@@ -1,0 +1,38 @@
+<div class="login-container">
+
+  <div class="login-box">
+
+    <h2>🌾 AgroFarm Login</h2>
+    <p>Welcome back! Please login to continue.</p>
+
+    <form (ngSubmit)="login()">
+
+      <div class="input-group">
+        <label>Username</label>
+        <input
+          type="text"
+          name="username"
+          [(ngModel)]="username"
+          placeholder="Enter username"
+        >
+      </div>
+
+      <div class="input-group">
+        <label>Password</label>
+        <input
+          type="password"
+          name="password"
+          [(ngModel)]="password"
+          placeholder="Enter password"
+        >
+      </div>
+
+      <button type="submit">Login</button>
+
+    </form>
+
+    <a href="#">Forgot Password?</a>
+
+  </div>
+
+</div>
