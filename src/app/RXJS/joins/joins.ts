@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { forkJoin, of, switchMap } from 'rxjs';
+import { exhaustMap, forkJoin, of, Subject, switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-joins',
@@ -14,20 +14,37 @@ export class Joins {
   stateData$=of(["tn","mp","up","ap"])
   cityData$=of(["tirupur","mumbai","solapur","tirupathi"]);
   api=inject(HttpClient)
-  search:FormControl=new FormControl();
+  searchcontrol:FormControl=new FormControl();
+  login$=new Subject<void>();
+
+  onbtnclick(){
+    this.login$.next();
+  }
   constructor(){
+     
+     this.login$.pipe(
+    exhaustMap(() =>
+      this.api.get('https://dummyjson.com/users')
+    )
+  ).subscribe((data: any) => {
+    console.log(data);
+  });
+
     //fork join using api
     const user=this.api.get('https://dummyjson.com/users');
     const post=this.api.get('https://dummyjson.com/posts');
     forkJoin([user,post]).subscribe(data=>{
-      debugger;
+      console.log(data)
     },error=>{
       console.log(error)
-    }
-    //switch map
-    
-    )
-    this.search.valueChanges.pipe(switchMap(sea:String)=>this.api.get(''))
+    })
+   
+    /* this.searchcontrol.valueChanges.subscribe((search:string)=>{this.api.get('https://dummyjson.com/products/search?='+search).subscribe((res:any)=>{
+      console.log(res)
+    })}) */
+   this.searchcontrol.valueChanges.pipe(switchMap((seach:string)=>this.api.get('https://dummyjson.com/products/search?q='+seach))).subscribe((res:any)=>{
+    console.log(res)
+   })
 
     //fork join 
     forkJoin([this.cityData$,this.stateData$]).subscribe(data=>{

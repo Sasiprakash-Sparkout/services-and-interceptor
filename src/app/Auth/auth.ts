@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs';
+import { BehaviorSubject, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -26,5 +26,5 @@ getsingleuser(){
   return this.http.get('https://jsonplaceholder.typicode.com/users/3').pipe(map((userdata:any)=>userdata.address))
   0
 }
-
+mysubject$=new BehaviorSubject<string>("to study angular")
 }

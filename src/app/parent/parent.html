@@ -1,0 +1,4 @@
+<h2>{{productname}}</h2>
+<h2>{{ productprice}}</h2>
+<h2>cardcount:{{ cardCount}}</h2>
+<app-child [name]=" productname" [price]="productprice" (counts)="onsubmit($event)"></app-child>
