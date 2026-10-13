@@ -1,0 +1,20 @@
+<p>Employeel count:{{count}}</p>
+
+<table border="2">
+    <thead>
+        <th>S.No</th>
+        <th>name</th>
+        <th>department</th>
+        <th>Salary</th>
+    </thead>
+    <tbody *ngFor="let employee of employees; index as ind;trackBy:trace">
+        <tr>
+            <td>{{ind+1}}</td>
+        <td>{{employee.name}}</td>
+        <td>{{employee.department}}</td>
+        <td>{{employee.salary}}</td>    
+        </tr>
+    </tbody>
+</table>
+<button (click)="onClick()">Add Employee</button>
+<app-parentchild [employees]="employees" (count)="onsubmit($event)"></app-parentchild>

@@ -1,0 +1,68 @@
+/* Employee List Heading */
+h1 {
+text-align: center;
+color: #2c3e50;
+margin-bottom: 25px;
+font-size: 30px;
+font-weight: bold;
+text-transform: uppercase;
+}
+
+/* Table Styling */
+table {
+width: 80%;
+margin: 0 auto;
+border-collapse: collapse;
+font-family: Arial, sans-serif;
+background-color: #ffffff;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+border: 1px solid #ddd;
+}
+
+/* Table Header */
+thead {
+background-color: #2563eb;
+color: white;
+}
+
+th {
+padding: 14px;
+text-align: left;
+font-size: 16px;
+text-transform: capitalize;
+}
+
+/* Table Data */
+td {
+padding: 12px 14px;
+border-bottom: 1px solid #ddd;
+color: #333;
+}
+
+/* Alternate Row Colors */
+tbody tr:nth-child(even) {
+background-color: #f2f6fc;
+}
+
+/* Hover Effect */
+tbody tr:hover {
+background-color: #dbeafe;
+transition: 0.3s;
+}
+
+/* Responsive Table */
+@media (max-width: 600px) {
+table {
+width: 100%;
+}
+
+th,
+td {
+padding: 8px;
+font-size: 13px;
+}
+
+h1 {
+font-size: 24px;
+}
+}

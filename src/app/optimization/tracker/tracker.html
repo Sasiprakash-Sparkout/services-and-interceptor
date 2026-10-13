@@ -1,0 +1,19 @@
+<h1>EMPLOYEE LIST</h1>
+<table border="2">
+    <thead>
+        <th>name</th>
+        <th>age</th>
+        <th>department</th>
+        <th>salary</th>
+    </thead>
+    <tbody *ngFor="let employee of employees; index as i;trackBy:tracker">
+        <tr>
+            <td>{{i}}</td>
+            <td>{{employee.name}}</td>
+            <td>{{employee.age}}</td>
+            <td>{{employee.department}}</td>
+            <td>{{employee.salary}}</td>
+        </tr>
+    </tbody>
+</table>
+<button (click)="refresh()">Refresh</button>
